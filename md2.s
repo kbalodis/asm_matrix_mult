@@ -29,17 +29,20 @@ matmul:
       reizina:
         cmp r2, r5
         bge endreizina
-        mov r3, r0, LSL #2
+        mul r3, r0, r7
+        mov r3, r3, LSL #2
         mov r11, r2, LSL #2
         add r3, r3, r11 @offset matrix1
         ldr r12, [r6, r3]
         mov r3, r1, LSL #2
-        mov r11, r2, LSL #2
+        mul r11, r2, r8
+        mov r11, r11, LSL #2
         add r11, r11, r3 @offset matrix2
         ldr r11, [r9, r11]
         mul r3, r12, r11 @m1 un m2 attiecigo elementu reizinajums
-        mov r11, r0, LSL #2
-        mov r12, r1, LSL #2
+        mov r11, r1, LSL #2
+        mul r12, r8, r0
+        mov r12, r12, LSL #2
         add r11, r11, r12 @offset matrix3
         ldr r12, [r10, r11] @ielade vajadzigo elementu no m3
         add r12, r12, r3 @pieskaita shim elementam tekosho reizinajumu
