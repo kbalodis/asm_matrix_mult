@@ -156,7 +156,10 @@ int main(int argc, char *argv[]) {
     if (!ret) {
         printf("%d %d ", h1, w2);
         for(int i = 0; i < h1*w2; i++)
-            printf("%d ", matrix3[i]);
+            if (i == h1 * w2 - 1)
+                printf("%d", matrix3[i]);
+            else
+                printf("%d ", matrix3[i]);
     } else {
         exit(1);
     }
