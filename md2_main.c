@@ -154,8 +154,9 @@ int main(int argc, char *argv[]) {
     int ret = matmul(h1, w1, matrix1, h2, w2, matrix2, matrix3);
 
     if (!ret) {
+        printf("%d %d ", h1, w2);
         for(int i = 0; i < h1*w2; i++)
-            printf("%d", matrix3[i]);
+            printf("%d ", matrix3[i]);
     } else {
         exit(1);
     }
